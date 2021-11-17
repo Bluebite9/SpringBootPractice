@@ -1,8 +1,8 @@
-package controller;
+package springbootPractice.controller;
 
-import model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springbootPractice.model.User;
 
 @RestController
 @RequestMapping("/rest/users")

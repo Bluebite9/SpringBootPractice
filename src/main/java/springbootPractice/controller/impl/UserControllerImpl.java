@@ -1,8 +1,9 @@
-package controller.impl;
+package springbootPractice.controller.impl;
 
-import controller.UserController;
-import model.User;
+
 import org.springframework.http.ResponseEntity;
+import springbootPractice.controller.UserController;
+import springbootPractice.model.User;
 
 public class UserControllerImpl implements UserController {
     @Override
