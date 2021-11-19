@@ -1,6 +1,7 @@
 package springbootPractice.controller.impl;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springbootPractice.controller.UserController;
@@ -33,7 +34,10 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<User>> findUserById(@PathVariable Integer id) {
-        return ResponseEntity.ok(userService.findById(id));
+    public ResponseEntity<Object> findUserById(@PathVariable Integer id) {
+        return userService.findById(id)
+                .<ResponseEntity<Object>>map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found"));
+
     }
 }

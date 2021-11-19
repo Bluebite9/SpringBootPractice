@@ -11,5 +11,5 @@ public interface UserController {
 
     ResponseEntity<Iterable<User>> findAllUsers();
 
-    ResponseEntity<Optional<User>> findUserById(Integer id);
+    ResponseEntity<Object> findUserById(Integer id);
 }
