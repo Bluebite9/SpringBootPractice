@@ -1,19 +1,15 @@
 package springbootPractice.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import springbootPractice.model.User;
 
-@RestController
-@RequestMapping("/rest/users")
+import java.util.Optional;
+
 public interface UserController {
 
-    @PostMapping("/create")
-    ResponseEntity<User> createUser(@RequestBody User user);
+    ResponseEntity<User> createUser(User user);
 
-    @GetMapping("/findAll")
-    ResponseEntity<User[]> findAllUsers();
+    ResponseEntity<Iterable<User>> findAllUsers();
 
-    @GetMapping("/{id}")
-    ResponseEntity<User> findUserById(@PathVariable Integer id);
+    ResponseEntity<Optional<User>> findUserById(Integer id);
 }
